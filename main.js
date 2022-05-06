@@ -29,11 +29,7 @@ const myArray = [4, -2, 6, 9, 1, 12, 6, 2, 10];
 let sum = 0;
 
 for (let i = 0; i < myArray.length; i++) {
-    if (myArray[i] > 5){
-        sum = sum + myArray[i];
-    } else {
-        sum = sum;
-    }
+    if (myArray[i] > 5) sum = sum + myArray[i]; 
 }
 
 console.log(sum);
@@ -69,24 +65,18 @@ console.log(information.interest.outdoor[0].hiking[2]);
 
 // TODO: write your code below this line
 
-function anagramFunc(x, y) {
+const anagramFunc = (x, y) => {
     // begin by checking if strings are of the same length
     let len1 = x.length;
     let len2 = y.length;
     
-    if (len1 !== len2){
-        console.log("Strings can't be anagram of each other due to unequal lengths")
-    } else {
-        // now we split and sort the strings
-        let str1 = x.split('').sort().join('');
-        let str2 = y.split('').sort().join('');
+    if (len1 !== len2) console.log("Strings can't be anagram of each other due to unequal lengths");
+    // now we split and sort the strings
+    let str1 = x.split('').sort().join('');
+    let str2 = y.split('').sort().join('');
 
-        if (str1 === str2){
-            return true;
-        } else {
-            return false;
-        }
-    }
+    if (str1 === str2) return true;
+    return false;
 }
 
 // TODO: write your code above this line
@@ -102,15 +92,13 @@ console.log(anagramFunc("jupiter", "jubiter")); // expected output: false
 
 // TODO: write your code below this line
 
-function palindromeFunc(str) {
+const palindromeFunc = str => {
     let len = str.length; //gets the length of the string
     let mid = Math.floor(len / 2); //finds the mid point of the string
 
     // we're going to check from the mid-point of the string
     for (let i = 0; i < mid; i++) {
-        if (str[i] !== str[len - 1 - i]){
-            return false;
-        } 
+        if (str[i] !== str[len - 1 - i]) return false; 
     }
 
     return true;
@@ -138,24 +126,14 @@ console.log(palindromeFunc("nurse run")); // expected output: false
  */
 
 // TODO: write your code below this line
-function getGrade(score) {
-    let grade;
+const getGrade = score => {
     // Write your code here
-    if (score > 25 && score <= 30){
-        grade = 'A';
-    } else if (score > 20 && score <= 25){
-        grade = 'B';
-    } else if (score > 15 && score <= 20){
-        grade = 'C';
-    } else if (score > 10 && score <= 15){
-        grade = 'D';
-    } else if (score > 5 && score <= 10) {
-        grade = 'E';
-    } else {
-        grade = 'F';
-    }
-
-    return grade;
+    if (score > 25 && score <= 30) return grade = 'A';
+    if (score > 20 && score <= 25) return grade = 'B';
+    if (score > 15 && score <= 20) return grade = 'C';
+    if (score > 10 && score <= 15) return grade = 'D';
+    if (score > 5 && score <= 10) return grade = 'E';
+    return grade = 'F';
 }
 // TODO: write your code above this line
 
@@ -175,18 +153,11 @@ console.log(getGrade(25)); // expected output: B
 // TODO: write your code below this line
 
 class Polygon {
-    constructor(sides = []) {
+    constructor(sides) {
         this.sides = sides;
     }
-    perimeter(sides = []) {
-        this.sides = sides;
-        let sum = 0;
-
-        for (let i = 0; i < this.sides.length; i++ ) {
-            sum += this.sides[i];
-        }
-
-        return sum
+    perimeter() {
+        return this.sides.reduce((acc, val) => acc + val, 0); 
     }
 }
 
@@ -200,12 +171,12 @@ class Polygon {
 
 // TODO: write your code below this line
 
-let obj = new Polygon(); 
+const obj = new Polygon([45, 56, 67]); 
 
 // TODO: write your code above this line
 
 // The line of code below will be used for testing your function. don't change it
-console.log(obj.perimeter([45, 56, 67])); // expected output: 168
+console.log(obj.perimeter()); // expected output: 168
 
 // QUESTION 9 
 
@@ -219,7 +190,7 @@ console.log(obj.perimeter([45, 56, 67])); // expected output: 168
  */
 
 // TODO: write your code below this line
-const fizzBuzz = () => {
+const fizzBuzz = () => {  
     for(let i = 0; i <= 21; i++) {
         // write your code here...
         function check(value) {
